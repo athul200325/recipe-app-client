@@ -121,7 +121,7 @@ removeMealType(mealType: string) {
           this.ingredients = []
           this.instructions = []
           this.mealArray = []
-          this.router.navigateByUrl("/admin/recipe-list")
+          this.router.navigateByUrl("/admin/recipe-lsit")
       })
     }else{
       alert("Fill the form completely!!")

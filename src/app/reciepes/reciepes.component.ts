@@ -19,7 +19,8 @@ export class ReciepesComponent {
   cuisineArray:any = []
   mealTypeArry:any = []
   dummyAllRecipes:any = []
-  p: number = 1;
+  p: number = 1; // Current page
+  itemsPerPage: number = 5; // Recipes per page
 
   constructor(private api:ApiService, private router:Router){}
 

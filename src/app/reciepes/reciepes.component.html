@@ -62,15 +62,16 @@
       
       <div class="recipe-grid">
         @if(allrecipes.length>0){
-          @for (recipe of allrecipes | search:searchKey | paginate: { itemsPerPage: 12, currentPage: p}; track $index){
+          @for (recipe of allrecipes | search:searchKey | paginate: { itemsPerPage: 6, currentPage: p}; track $index){
             <div class="recipe-card">
               <img
+              style="height: 180px; width: 100%; object-fit: cover;"
                 (click)="viewRecipe(recipe._id)"
                 class="recipe-image"
                 [src]="recipe.image"
                 alt="{{ recipe.name }}"
               />
-              <div class="recipe-info">
+              <div style="height: 100px;" class="recipe-info">
                 <p class="recipe-name">{{ recipe.name }}</p>
                 <p class="recipe-cuisine">Cuisine: {{ recipe.cuisine }}</p>
               </div>
