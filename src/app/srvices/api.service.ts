@@ -8,7 +8,7 @@ export class ApiService {
 
   constructor(private http:HttpClient) { }
   // server_url = "http://localhost:3000"
-    server_url = "http://localhost:4000"
+    server_url = "https://recipeapp-server-jmlv.onrender.com"
   getAllRecipeAPI(){
     return this.http.get(`${this.server_url}/all-recipes`)
   }
