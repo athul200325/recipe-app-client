@@ -1,0 +1,49 @@
+<app-header></app-header>
+
+<div class="container my-5">
+  <!-- Profile Section -->
+  <div class="text-center my-5">
+    <h1 class="fw-bold mb-4">My Profile</h1>
+    <label class="position-relative d-inline-block">
+      <input (change)="getFile($event)" type="file" style="display: none" />
+      <img
+        width="200px"
+        height="200px"
+        [src]="profileImg"
+        alt=""
+        class="rounded-circle shadow-sm border border-3 border-secondary"
+        style="object-fit: cover; cursor: pointer; transition: 0.3s;"
+        onmouseover="this.style.opacity=0.7"
+        onmouseout="this.style.opacity=1"
+      />
+      <div style="top: 86%;" class="position-absolute start-50 translate-middle text-dark fw-bold opacity-75">
+        Change Photo
+      </div>
+    </label>
+    <br />
+    <button (click)="updateProfile()" class="btn btn-success mt-4 px-4 py-2 fw-semibold shadow">
+      Update Profile
+    </button>
+  </div>
+
+  <!-- Recipes Download Section -->
+  <h3 class="fw-bold text-center mb-4">Download Recipes</h3>
+  <div class="row my-5 justify-content-center">
+    @if (allRecipeDownload.length > 0) { 
+      @for (recipe of allRecipeDownload; track $index) {
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+          <div class="card shadow-sm border-0 p-3 text-center">
+            <img [src]="recipe.recipeImage" class="card-img-top rounded" alt="" style="height: 180px; object-fit: cover;" />
+            <h5 class="card-title mt-3 fw-bold">{{ recipe.recipeName }}</h5>
+          </div>
+        </div>
+      } 
+    } @else {
+      <div class="fw-bold text-danger text-center fs-4 mt-4">
+        No recipes downloaded yet!!!
+      </div>
+    }
+  </div>
+</div>
+
+<app-footer></app-footer>

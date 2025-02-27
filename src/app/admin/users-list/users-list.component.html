@@ -1,0 +1,36 @@
+<div class="">
+  <div class="row">
+    <!-- Sidebar -->
+    <div class="col-lg-2">
+      <app-sidebar></app-sidebar>
+    </div>
+
+    <!-- Main Content -->
+    <div class="col-lg-10 pt-3">
+      <div class="content-card shadow-lg">
+        <h1 class="title"><i class="fa-solid fa-users"></i> All Users List</h1>
+
+        <div class="table-responsive">
+          <table class="table custom-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Email</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (user of allUsers; track $index; let i = $index) {
+              <tr>
+                <td>{{ i + 1 }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+              </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+<app-header></app-header>
+<div style="width: 1200px;" class="container">
+  <!-- Page Header -->
+  <div class="row bg-success p-5 justify-content-center text-light text-center mb-5">
+    <h1 class="display-4 fw-bold">Your Recipe Collection</h1>
+    <p class="lead">Explore and manage your saved recipes here.</p>
+  </div>
+
+  <!-- Recipe Grid -->
+  <div class="row my-5">
+    @if (allRecipes.length > 0) {
+      @for (recipe of allRecipes; track $index) {
+        <div class="col-lg-3 mb-4">
+          <div class="card h-100 border-0 shadow-sm hover-scale">
+            <!-- Recipe Image -->
+            <img
+              style="height: 180px; width: 100%; object-fit: cover;"
+              routerLink="/recipe/{{ recipe.recipeId }}/view"
+              [src]="recipe.image"
+              class="card-img-top rounded-top"
+              alt="{{ recipe.name }}"
+            />
+            <!-- Recipe Details -->
+            <div class="card-body d-flex justify-content-between align-items-center">
+              <h5 class="card-title fw-bold mb-0">{{ recipe.name }}</h5>
+              <!-- Delete Button -->
+              <button (click)="removeSaveRecipe(recipe._id)" class="btn btn-link p-0">
+                <i class="fa-solid fa-trash text-danger fs-5"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      }
+    } @else {
+      <!-- Empty State -->
+      <div class="text-center py-5">
+        <div class="fw-bold fs-3 text-danger mb-3">Your collection is empty!</div>
+        <p class="text-muted mb-4">Start adding recipes to your collection.</p>
+        <button routerLink="/all-recipes" class="btn btn-primary btn-lg">
+          <i class="fas fa-utensils me-2"></i>Explore Recipes
+        </button>
+      </div>
+    }
+  </div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,40 @@
+<div class=" ">
+  <div class="row">
+    <!-- Sidebar -->
+    <div class="col-lg-2">
+      <app-sidebar></app-sidebar>
+    </div>
+
+    <!-- Main Content -->
+    <div class="col-lg-10 pt-3">
+      <div class="content-card shadow-lg">
+        <h1 class="title"><i class="fa-solid fa-download"></i> All Download List</h1>
+
+        <div class="table-responsive">
+          <table class="table custom-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Recipe ID</th>
+                <th>Recipe Name</th>
+                <th>Recipe Cuisine</th>
+                <th>Count</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (download of allDownloadList; track $index; let i = $index) {
+              <tr>
+                <td>{{ i + 1 }}</td>
+                <td>{{ download.recipeId }}</td>
+                <td>{{ download.recipeName }}</td>
+                <td>{{ download.recipeCuisine }}</td>
+                <td>{{ download.count }}</td>
+              </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

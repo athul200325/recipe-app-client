@@ -1,0 +1,104 @@
+.container-fluid {
+    background: #f5f7fa; /* Soft Background */
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
+  .content-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    padding-bottom: 15px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .add-btn {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 8px 15px;
+  }
+  
+  .search-input {
+    width: 250px;
+    border-radius: 8px;
+    padding: 8px;
+  }
+  
+  .custom-table {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .custom-table thead {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    font-weight: bold;
+  }
+  
+  .custom-table th, .custom-table td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .custom-table tbody tr:hover {
+    background: rgba(0, 123, 255, 0.1);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .recipe-img {
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
+  .edit-btn, .delete-btn {
+    padding: 6px 10px;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .edit-btn {
+    background: rgba(0, 123, 255, 0.1);
+    color: #007bff;
+  }
+  
+  .delete-btn {
+    background: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+  }
+  
+  .edit-btn:hover {
+    background: #007bff;
+    color: white;
+  }
+  
+  .delete-btn:hover {
+    background: #dc3545;
+    color: white;
+  }
+  
+  @media (max-width: 768px) {
+    .content-card {
+      padding: 15px;
+    }
+  
+    .search-input {
+      width: 100%;
+    }
+  
+    .custom-table th, .custom-table td {
+      padding: 10px;
+    }
+  }
+  

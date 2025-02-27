@@ -1,0 +1,88 @@
+<div class="container-fluid vh-100 p-0">
+  <div class="row h-100 g-0">
+    <!-- Left Section: Background Image with Dark Overlay and Text -->
+    <div class="col-lg-6 d-none d-lg-block position-relative">
+      <!-- Background Image -->
+      <div
+        class="h-100"
+        style="
+          background-image: url('https://images.pexels.com/photos/10875181/pexels-photo-10875181.jpeg');
+          background-size: cover;
+          background-position: center;
+        "
+      ></div>
+      <!-- Dark Overlay -->
+      <div class="overlay-dark"></div>
+      <!-- Heading and Text -->
+      <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center p-5">
+        <div>
+          <a class="text-decoration-none text-light" routerLink="/">
+            <h1 class="fw-bold display-4 mb-4">
+              <img width="90px" src="https://png.pngtree.com/png-clipart/20230425/original/pngtree-hand-draw-chef-cook-icon-png-image_9094586.png" alt="">Cookpedia
+            </h1>
+          </a>
+          <p class="fs-5 text-light">
+            More than 100+ recipes from around the world
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Section: Login Form -->
+    <div class="col-lg-6 d-flex flex-column justify-content-center align-items-center bg-light">
+      <div style="width: 100%; max-width: 450px" class="p-4">
+        <h2 class="fw-bold text-center mb-3">Login</h2>
+
+        <!-- Login Form -->
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+          <!-- Email Input -->
+          <div class="mb-3">
+            <input
+              name="email"
+              formControlName="email"
+              type="email"
+              class="form-control"
+              id="exampleInputEmail1"
+              placeholder="E-mail"
+              aria-describedby="emailHelp"
+            />
+            @if (loginForm.get('email')?.errors && loginForm.get('email')?.touched) {
+            <div class="text-danger fw-bolder mt-2">Invalid Email</div>
+            }
+          </div>
+
+          <!-- Password Input -->
+          <div class="mb-3">
+            <input
+              name="password"
+              formControlName="password"
+              type="password"
+              placeholder="Password"
+              class="form-control"
+              id="exampleInputPassword1"
+            />
+            @if (loginForm.get('password')?.errors && loginForm.get('password')?.touched) {
+            <div class="text-danger fw-bolder mt-2">Invalid Password</div>
+            }
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-success w-100 mt-4">Login</button>
+        </form>
+
+        <!-- Additional Links -->
+        <div class="mt-4 text-center">
+          <p class="text-muted">
+            Don't have an account?
+            <a routerLink="/register" class="text-success text-decoration-none">Sign up</a>
+          </p>
+          <p class="text-muted">
+            <a routerLink="/forgot-password" class="text-success text-decoration-none"
+              >Forgot Password?</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

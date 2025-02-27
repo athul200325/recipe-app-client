@@ -1,0 +1,112 @@
+<app-header></app-header>
+<div style="width: 1200px;" class="container my-5">
+  <div class="row mb-5">
+    <!-- Left Column: Recipe Image and Actions -->
+    <div class="col-lg-6">
+      <a routerLink="/all-recipes" class="text-decoration-none text-muted">
+        <i class="fas fa-arrow-left me-2"></i>Back to Recipes List
+      </a>
+      <img
+        class="img-fluid my-5 rounded shadow"
+        [src]="recipe.image"
+        alt="{{ recipe.name }}"
+      />
+      <div class="d-flex justify-content-between">
+        <button (click)="downloadRecipe()" class="btn btn-success btn-lg w-50 me-2">
+          <i class="fas fa-download me-2"></i>Download Recipe
+        </button>
+        <button (click)="saveRecipe()" class="btn btn-outline-success btn-lg w-50">
+          <i class="fas fa-bookmark me-2"></i>Save Recipe
+        </button>
+      </div>
+    </div>
+
+    <!-- Right Column: Recipe Details -->
+    <div class="col-lg-6">
+      <h1 class="display-4 fw-bold mb-4">{{ recipe.name }}</h1>
+      <div class="d-flex justify-content-between my-5">
+        <p class="fw-bold text-muted">Cuisine: {{ recipe.cuisine }}</p>
+        <p class="fw-bold text-muted">Servings: {{ recipe.servings }}</p>
+        <p class="fw-bold text-muted">Mode of Cooking: {{ recipe.difficulty }}</p>
+      </div>
+
+      <!-- Recipe Stats -->
+      <div class="d-flex justify-content-evenly my-5 p-4 bg-light rounded shadow-sm">
+        <div class="d-flex flex-column align-items-center">
+          <img
+            width="70px"
+            src="https://tse2.mm.bing.net/th?id=OIP.xy52jM0FuazKAQTfeyvo_gHaHa&pid=Api&P=0&h=180"
+            alt="Preparation Time"
+            class="mb-3"
+          />
+          <p class="fw-bold text-muted">Preparation Time</p>
+          <h6 class="fw-bold text-success">
+            {{ recipe.prepTimeMinutes }} Minutes
+          </h6>
+        </div>
+        <div class="d-flex flex-column align-items-center">
+          <img
+            width="100px"
+            src="https://eastmanscorner.com/wp-content/uploads/2015/01/cooking-icon.png"
+            alt="Cooking Time"
+            class="mb-3"
+          />
+          <p class="fw-bold text-muted">Cooking Time</p>
+          <h6 class="fw-bold text-success">
+            {{ recipe.cookTimeMinutes }} Minutes
+          </h6>
+        </div>
+        <div class="d-flex flex-column align-items-center">
+          <img
+            width="80px"
+            src="https://cdn1.iconfinder.com/data/icons/fitness-sport/512/calories-512.png"
+            alt="Calories"
+            class="mb-3"
+          />
+          <p class="fw-bold text-muted">Calories Per Serving</p>
+          <h6 class="fw-bold text-success">
+            {{ recipe.caloriesPerServing }}
+          </h6>
+        </div>
+      </div>
+
+      <!-- Ingredients -->
+      <div class="my-5">
+        <h2 class="fw-bold mb-4">Ingredients Needed</h2>
+        <ol class="list-group list-group-flush">
+          @for (item of recipe.ingredients; track $index) {
+          <li class="list-group-item bg-transparent">{{ item }}</li>
+          }
+        </ol>
+      </div>
+
+      <!-- Instructions -->
+      <div class="my-5">
+        <h2 class="fw-bold mb-4">Instructions</h2>
+        <ol class="list-group list-group-numbered">
+          @for (item of recipe.instructions; track $index) {
+          <li class="list-group-item bg-transparent">{{ item }}</li>
+          }
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- Related Recipes -->
+  <div class="mb-5">
+    <h1 class="display-6 fw-bold mb-4">Related Recipes</h1>
+    <div class="row my-3">
+      @for (item of allRelatedRecipes; track $index) {
+      <div routerLink="/recipe/{{ item._id }}/view" class="col-lg-2 mb-4">
+        <div class="card h-100 border-0 shadow-sm hover-scale">
+          <img [src]="item.image" class="card-img-top rounded-top" alt="{{ item.name }}" />
+          <div class="card-body">
+            <h5 class="card-title fw-bold">{{ item.name }}</h5>
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

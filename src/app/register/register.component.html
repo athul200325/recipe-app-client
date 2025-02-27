@@ -1,0 +1,79 @@
+<div class="container-fluid vh-100 p-0">
+  <div class="row h-100 g-0">
+    <!-- Left Section: Background Image with Dark Overlay and Text -->
+    <div class="col-lg-6 position-relative d-none d-lg-block">
+      <!-- Background Image -->
+      <div class="h-100" style="
+        background-image: url('https://images.pexels.com/photos/10875181/pexels-photo-10875181.jpeg');
+        background-size: cover;
+        background-position: center;
+      "></div>
+      <!-- Dark Overlay -->
+      <div class="position-absolute top-0 start-0 w-100 h-100 overlay-dark"></div>
+      <!-- Text on Image -->
+      <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center text-light p-5">
+        <div>
+          <h1 class="pb-4 display-4 fw-bold text-">
+
+            <img width="90px" src="https://png.pngtree.com/png-clipart/20230425/original/pngtree-hand-draw-chef-cook-icon-png-image_9094586.png" alt="">Cookpedia
+          </h1>
+          <p class="fs-4 fw-semibold">What you will get?</p>
+          <ul class="fs-5  fw-medium list-unstyled">
+            <li>Different Recipes</li>
+            <li>Easy Way to Make Recipes</li>
+            <li>Save Your Favourite Recipes</li>
+            <li>Download Your Recipes</li>
+          </ul>
+        </div>
+        
+      </div>
+    </div>
+
+    <!-- Right Section: Registration Form -->
+    <div class="col-lg-6 d-flex flex-column justify-content-center align-items-center bg-light">
+      <h2 class="fw-bold">Create a New Account</h2>
+
+      <div class="border rounded p-5 shadow-sm" style="width: 450px;">
+        
+        
+        <form [formGroup]="registerForm" (ngSubmit)="register()">
+          <!-- Username -->
+          <div class="mb-3">
+            <input name="username" formControlName="username" type="text" class="form-control" placeholder="Username" />
+            @if (registerForm.get('username')?.errors && registerForm.get('username')?.touched) {
+            <div class="text-danger fw-bolder mt-2">Invalid Username</div>
+            }
+          </div>
+          <!-- Email -->
+          <div class="mb-3">
+            <input name="email" formControlName="email" type="email" class="form-control" placeholder="E-mail" />
+            @if (registerForm.get('email')?.errors && registerForm.get('email')?.touched) {
+            <div class="text-danger fw-bolder mt-2">Invalid email</div>
+            }
+          </div>
+          <!-- Password -->
+          <div class="mb-3">
+            <input name="password" formControlName="password" type="password" class="form-control" placeholder="Password" />
+            @if (registerForm.get('password')?.errors && registerForm.get('password')?.touched) {
+            <div class="text-danger fw-bolder mt-2">Invalid password</div>
+            }
+          </div>
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-success w-100 mt-3">Register</button>
+        </form>
+      </div>
+      <div class="mt-4 text-center">
+        <p class="text-muted">
+          Already have an account?
+          <a routerLink="/login" class="text-success text-decoration-none">Sign in</a>
+        </p>
+        <p class="text-muted">
+          <a routerLink="/forgot-password" class="text-success text-decoration-none"
+            >Forgot Password?</a
+          >
+        </p>
+      </div>
+    </div>
+    
+  </div>
+</div>

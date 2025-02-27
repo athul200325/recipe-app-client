@@ -1,0 +1,61 @@
+<div class="">
+  <div class="row">
+    <!-- Sidebar -->
+    <div class="col-lg-2 sidebar-container">
+      <app-sidebar></app-sidebar>
+    </div>
+
+    <!-- Main Content -->
+    <div class="col-lg-10 p-3">
+      <div class="content-card shadow-lg">
+        <h1 class="title"><i class="fa-solid fa-comments"></i> All Client Feedback Requests</h1>
+
+        <!-- Feedback Table -->
+        <div class="table-responsive">
+          <table class="table custom-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Username</th>
+                <th>E-mail</th>
+                <th>Feedback</th>
+                <th>Action / Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (feedback of allFeedbacks; track $index; let i = $index) {
+              <tr>
+                <td>{{ i + 1 }}</td>
+                <td>{{ feedback.name }}</td>
+                <td>{{ feedback.email }}</td>
+                <td class="feedback-text">{{ feedback.message }}</td>
+                <td>
+                  @if (feedback.status == 'Pending') {
+                  <div class="d-flex">
+                    <button (click)="updateFeedback(feedback._id, 'Approved')" class="btn action-btn approve-btn">
+                      <i class="fa-solid fa-check"></i> Approve
+                    </button>
+                    <button (click)="updateFeedback(feedback._id, 'Rejected')" class="btn action-btn reject-btn ms-2">
+                      <i class="fa-solid fa-x"></i> Reject
+                    </button>
+                  </div>
+                  } @else if (feedback.status == 'Approved') {
+                  <button class="btn status-btn approved">Approved</button>
+                  } @else {
+                  <button class="btn status-btn rejected">Rejected</button>
+                  }
+                </td>
+              </tr>
+              }
+              @if (allFeedbacks.length == 0) {
+              <tr>
+                <td colspan="5" class="text-danger fw-bold text-center">No Feedback Requests Found</td>
+              </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

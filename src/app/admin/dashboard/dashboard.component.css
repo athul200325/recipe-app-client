@@ -1,0 +1,23 @@
+.tiny-calendar {
+    max-width: 190px; /* Adjust width to fit neatly */
+  }
+  
+  .tiny-calendar .mat-calendar-body {
+    font-size: 12px !important; /* Smaller font for dates */
+  }
+  
+  .tiny-calendar .mat-calendar-body-cell-content {
+    width: 30px !important; /* Adjust cell size */
+    height: 30px !important;
+    font-size: 14px !important; /* Uniform date size */
+    line-height: 30px !important;
+  }
+  
+  .tiny-calendar .mat-calendar-header {
+    font-size: 14px !important; /* Month & Year size */
+  }
+  
+  .tiny-calendar .mat-calendar-table-header th {
+    font-size: 2px !important; /* Weekday names size */
+  }
+  
